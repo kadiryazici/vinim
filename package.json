@@ -1,0 +1,31 @@
+{
+   "name": "vierone-vue3",
+   "version": "0.0.0",
+   "main": "./dist/vierone-vue3.umd.js",
+   "module": "./dist/vierone-vue3.es.js",
+   "exports": {
+      ".": {
+         "import": "./dist/vierone-vue3.es.js",
+         "require": "./dist/vierone-vue3.umd.js"
+      }
+   },
+   "scripts": {
+      "dev": "vite",
+      "build": "tsc --noEmit && vite build && timeout 3 && bash ./moveTypes.sh",
+      "serve": "vite preview"
+   },
+   "devDependencies": {
+      "@types/node": "^16.4.0",
+      "@vitejs/plugin-vue-jsx": "^1.1.6",
+      "autoprefixer": "^10.3.1",
+      "postcss": "^8.3.5",
+      "sass": "^1.35.2",
+      "typescript": "^4.3.2",
+      "vite": "^2.4.3",
+      "vite-plugin-dts": "^0.5.2",
+      "vue": "^3.1.5"
+   },
+   "peerDependencies": {
+      "vue": "^3.1.5"
+   }
+}

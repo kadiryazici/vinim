@@ -1,0 +1,35 @@
+:root {
+   --vinimQuoteColor: hsl(0, 0%, 55%);
+   --vinimThemeColor: hsl(252, 80, 65%);
+}
+
+.vinim {
+   &-block-text {
+      display: block;
+   }
+
+   &-inline-text {
+      display: inline;
+   }
+
+   &-pharagraph {
+      display: block;
+   }
+
+   &-wrapper {
+      display: block;
+   }
+
+   &-quote {
+      font-style: italic;
+      padding: 10px;
+      color: var(--vinimQuoteColor);
+      border-left: 3px solid var(--vinimQuoteColor);
+   }
+
+   &-divider {
+      background-color: transparent;
+      display: block;
+      height: 15px;
+   }
+}
