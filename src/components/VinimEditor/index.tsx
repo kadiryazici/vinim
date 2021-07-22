@@ -77,26 +77,24 @@ export const Vinime = defineComponent({
                <div class="vinime-content">
                   <div class="vinime-content-heading">{schema.name}</div>
                   {PropertyHandler()}
-                  <div class="vinime-content-body">
-                     {schema.content ? (
-                        <>
-                           {/* @ts-ignore */}
-                           <Vinime content={item.content} />
-                           <button
-                              onClick={() =>
-                                 //  @ts-ignore */
-                                 item.content.push({
-                                    type: 'route-link',
-                                    href: '/',
-                                    text: 'home'
-                                 })
-                              }
-                           >
-                              Add
-                           </button>
-                        </>
-                     ) : null}
-                  </div>
+                  {schema.content ? (
+                     <div class="vinime-content-body">
+                        {/* @ts-ignore */}
+                        <Vinime content={item.content} />
+                        <button
+                           onClick={() =>
+                              //  @ts-ignore */
+                              item.content.push({
+                                 type: 'route-link',
+                                 href: '/',
+                                 text: 'home'
+                              })
+                           }
+                        >
+                           Add
+                        </button>
+                     </div>
+                  ) : null}
                </div>
             );
          });
