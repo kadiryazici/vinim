@@ -1,14 +1,10 @@
 import { defineComponent } from 'vue';
-import { Vinim, TestData } from '../src/components/Vinim';
+import { RouterView } from 'vue-router';
 
 export const App = defineComponent({
    name: 'App',
    setup() {},
    render() {
-      return (
-         <div>
-            <Vinim content={TestData()} />
-         </div>
-      );
+      return <RouterView />;
    }
 });

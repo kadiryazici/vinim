@@ -6,6 +6,7 @@
 .vinim {
    &-block-text {
       display: block;
+      white-space: pre-line;
    }
 
    &-inline-text {
@@ -31,5 +32,70 @@
       background-color: transparent;
       display: block;
       height: 15px;
+   }
+}
+
+.vinime {
+   $spacing: 4px;
+   $contentBorderColor: hsl(0, 0%, 85%);
+   $contentBodyBG: hsl(0, 0%, 95%);
+   $contentRadius: 5px;
+   $headingFontSize: 18px;
+   $contentBodyRadius: 15px 15px $contentRadius $contentRadius;
+   $normalShadow: 0px 0px 2px 0px hsla(0, 0%, 0%, 0.25);
+   $themeColor: hsla(252, 80%, 65%, 100%);
+
+   &-content {
+      padding: $spacing;
+      flex: 1;
+      border-radius: $contentRadius;
+      border: 2px solid $contentBorderColor;
+      background-color: hsl(0, 0%, 100%);
+      margin-bottom: $spacing;
+      &-heading {
+         font-size: $headingFontSize;
+         padding: $spacing 0;
+         cursor: pointer;
+         color: $themeColor;
+      }
+
+      &-properties {
+         padding: $spacing;
+
+         .vinime-property-item {
+            display: flex;
+            flex-flow: row;
+            flex-wrap: nowrap;
+            width: 100%;
+            align-items: center;
+            margin-bottom: $spacing;
+            .title {
+               font-size: 12px;
+            }
+            input,
+            .input-area {
+               width: 100%;
+               border-radius: $contentRadius;
+               border: 2px solid $contentBorderColor;
+               padding: 0 $spacing;
+            }
+            .input-area {
+               min-height: 75px;
+            }
+         }
+      }
+
+      &-body {
+         border: 1px solid $contentBorderColor;
+         background-color: $contentBodyBG;
+         border-radius: $contentRadius;
+         box-shadow: $normalShadow;
+         padding: $spacing;
+         min-height: 50px;
+         width: 100%;
+      }
+   }
+
+   .button {
    }
 }

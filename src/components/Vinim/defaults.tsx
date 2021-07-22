@@ -29,5 +29,11 @@ export const defaults: Defaults = {
    },
    divider: {
       class: 'vinim-divider'
+   },
+   'route-link': {
+      class: 'vinim-link'
+   },
+   heading: {
+      class: 'vinim-heading'
    }
 };

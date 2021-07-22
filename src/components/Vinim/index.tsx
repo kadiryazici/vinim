@@ -5,6 +5,7 @@ import {
    ref,
    SetupContext
 } from 'vue';
+import { RouterLink } from 'vue-router';
 import { defaults } from './defaults';
 
 export const Vinim = defineComponent({
@@ -54,7 +55,7 @@ export const Vinim = defineComponent({
 
             case 'link': {
                return (
-                  <a class={_class} href={kind.href} {...kind.attributes}>
+                  <a class={_class} href={kind.href}>
                      {kind.text}
                   </a>
                );
@@ -62,6 +63,18 @@ export const Vinim = defineComponent({
 
             case 'divider': {
                return <div class={_class}></div>;
+            }
+
+            case 'route-link': {
+               return (
+                  <RouterLink class={_class} to={kind.href}>
+                     {kind.text}
+                  </RouterLink>
+               );
+            }
+
+            case 'heading': {
+               <div role="heading" class={_class}></div>;
             }
          }
       });
@@ -120,14 +133,16 @@ export function TestData(): AllContentTypes[] {
                         {
                            type: 'link',
                            href: 'https://google.com',
-                           text: 'Google',
-                           attributes: {
-                              target: '_blank'
-                           }
+                           text: 'Google'
                         }
                      ]
                   }
                ]
+            },
+            {
+               type: 'route-link',
+               text: 'About',
+               href: '/about'
             }
          ]
       }
@@ -141,7 +156,9 @@ export type AllContentTypes =
    | InlineText
    | Quote
    | Link
-   | Divider;
+   | Divider
+   | RouteLink
+   | Heading;
 
 interface Block {
    type: 'block';
@@ -167,8 +184,16 @@ interface Link {
    type: 'link';
    href: string;
    text: string;
-   attributes?: Partial<AnchorHTMLAttributes>;
 }
 interface Divider {
    type: 'divider';
+}
+interface Heading {
+   type: 'heading';
+   text: string;
+}
+interface RouteLink {
+   type: 'route-link';
+   text: string;
+   href: string;
 }
